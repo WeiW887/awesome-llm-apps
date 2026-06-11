@@ -67,10 +67,14 @@ def build_agent():
 
     # Initialize LLM - use model from env or default to gpt-5.5
     model_name = os.environ.get("OPENAI_MODEL", "gpt-5.5")
+    # Optional: point at any OpenAI-compatible endpoint (e.g. Groq) via OPENAI_BASE_URL.
+    # Left unset, this defaults to the official OpenAI API.
+    base_url = os.environ.get("OPENAI_BASE_URL") or None
     llm = ChatOpenAI(
         model=model_name,
         temperature=0.7,
         api_key=api_key,
+        base_url=base_url,
     )
 
     # Main agent gets research tool plus built-in Deep Agents tools
