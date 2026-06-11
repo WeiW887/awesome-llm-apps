@@ -1,0 +1,29 @@
+# Fully-local Voice RAG (rag_voice_local.py)
+# LLM via LM Studio/Ollama, FastEmbed embeddings, local Qdrant, Kokoro TTS.
+
+streamlit
+python-dotenv
+
+# Vector DB (used in local embedded mode: QdrantClient(path=...))
+qdrant-client
+
+# Local embeddings (no API)
+fastembed
+
+# PDF loading + chunking
+langchain
+langchain-community
+langchain-text-splitters
+pypdf
+
+# Agent runtime + OpenAI-compatible client (points at LM Studio/Ollama, no OpenAI key)
+openai-agents
+openai
+
+# Local neural TTS (requires system package: espeak-ng)
+kokoro>=0.9
+soundfile
+numpy
+
+# Lighter TTS alternative to Kokoro (swap synthesize_speech if you prefer):
+# piper-tts
