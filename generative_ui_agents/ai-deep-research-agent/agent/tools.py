@@ -130,6 +130,7 @@ def research(query: str) -> dict:
             model=model_name,
             temperature=0.7,
             api_key=os.environ.get("OPENAI_API_KEY"),
+            base_url=os.environ.get("OPENAI_BASE_URL") or None,
         )
 
         # System prompt for the internal researcher
